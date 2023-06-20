@@ -19,9 +19,13 @@ const TabList = () => {
         scrollButtons="auto"
         allowScrollButtonsMobile
         aria-label="scrollable tabs"
+        
       >
         {tabItems.map((item) => {
-          return <Tab key={item.id} label={item.text} sx={{ color: 'white'}} />;
+          return <Tab key={item.id} label={item.text} sx={{ color: 'white', ':hover': { 
+            backgroundColor: 'rgba(255, 255, 255, 0.1)',
+            borderRadius: '15px' 
+             } }} />;
         })}
       </Tabs>
     </Box>

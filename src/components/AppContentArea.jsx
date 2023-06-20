@@ -21,9 +21,9 @@ const AppContentArea = ({ isOpen }) => {
       </Box>
       <Box component="div" sx={flexColumnGrow}>
         <Box 
-        sx={{ 
-            my: 2,
-            width : 'calc(100vw - ${sideBarWidth})',    
+        sx={{
+          my: 2,
+          width: `calc(100vw - ${sideBarWidth})`,
         }}>
             <TabList />
         </Box>

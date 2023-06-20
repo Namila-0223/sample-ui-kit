@@ -21,7 +21,7 @@ const theme = createTheme({
     components: {
         MuiTabs: {
         styleOverrides: {
-            indicator: {
+            indicator : {
             backgroundColor: 'transparent',
             },
         },
@@ -33,7 +33,7 @@ const theme = createTheme({
             borderRadius: 30,
             marginRight: '10px',
             marginTop: '10px',
-            minHeight : '20px',
+            minHeight : '15px',
             minWidth : '60px',
             ':active': {
                 backgroundColor : 'black',
