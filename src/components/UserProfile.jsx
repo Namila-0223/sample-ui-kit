@@ -1,81 +1,64 @@
-import { FaUserCircle } from 'react-icons/fa';
-import { userProfileItems } from '../data/app.data';
-import Avatar from '@mui/material/Avatar';
+import * as React from 'react';
+import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
-import Button from '@mui/material/Button';
-import Divider from '@mui/material/Divider';
-import Link from '@mui/material/Link';
-import List from '@mui/material/List';
-import ListItem from '@mui/material/ListItem';
-import ListItemAvatar from '@mui/material/ListItemAvatar';
-import ListItemButton from '@mui/material/ListItemButton';
-import ListItemIcon from '@mui/material/ListItemIcon';
-import ListItemText from '@mui/material/ListItemText';
-import Menu from '@mui/material/Menu';
-import React from 'react';
+import Toolbar from '@mui/material/Toolbar';
+import IconButton from '@mui/material/IconButton';
 import Typography from '@mui/material/Typography';
-import { inlineText } from '../styles/styles';
-import useToggle from '../hooks/useToggle';
+import Menu from '@mui/material/Menu';
+import MenuIcon from '@mui/icons-material/Menu';
+import Container from '@mui/material/Container';
+import Avatar from '@mui/material/Avatar';
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import MenuItem from '@mui/material/MenuItem';
+import AdbIcon from '@mui/icons-material/Adb';
+
+const settings = ['Profile', 'Account', 'Dashboard', 'Logout'];
+
+function UserProfile() {
+  const [anchorElUser, setAnchorElUser] = React.useState(null);
 
 
+  const handleOpenUserMenu = (event) => {
+    setAnchorElUser(event.currentTarget);
+  };
 
-const UserProfile = () => {
-    const { el, open, handleClick, handleClose } = useToggle();
-    return (
-      <Box sx={{ px: 1 }}>
-        <Button id="basic-button" onClick={handleClick}>
-          <FaUserCircle size={24} />
-        </Button>
-        <Menu
-          id="basic-menu"
-          anchorEl={el}
-          open={open}
-          onClose={handleClose}
-          MenuListProps={{
-            'aria-labelledby': 'basic-button',
-          }}
-        >
-          <ListItem sx={{ pt: 0, pb: 1 }} alignItems="flex-start">
-            <ListItemAvatar>
-              <Avatar
-                alt="Channel avatar"
-                src={`https://i.pravatar.cc/150?img=2`}
-              />
-            </ListItemAvatar>
-            <ListItemText
-              primary="Oh my Javascript"
-              secondary={
-                <React.Fragment>
-                  <Typography sx={inlineText} component="span">
-                    <Link href="#" underline="none">
-                      Manage Your Google Account
-                    </Link>
-                  </Typography>
-                </React.Fragment>
-              }
-            />
-          </ListItem>
-          <Box sx={{ minWidth: 300, borderTop: '1px solid #ddd' }}>
-            {userProfileItems.map((item) => {
-              return (
-                <List sx={{ p: 0 }} key={item.id}>
-                  {item.divider ? (
-                    <Divider />
-                  ) : (
-                    <ListItem disablePadding>
-                      <ListItemButton>
-                        <ListItemIcon>{item.icon}</ListItemIcon>
-                        <ListItemText primary={item.text} />
-                      </ListItemButton>
-                    </ListItem>
-                  )}
-                </List>
-              );
-            })}
+  const handleCloseUserMenu = () => {
+    setAnchorElUser(null);
+  };
+
+  return (
+
+          <Box sx={{ flexGrow: 0 }}>
+            <Tooltip title="Open settings">
+              <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
+                <Avatar alt="Remy Sharp"/>
+              </IconButton>
+            </Tooltip>
+            <Menu
+              sx={{ mt: '25px' }}
+              id="menu-appbar"
+              anchorEl={anchorElUser}
+              anchorOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              keepMounted
+              transformOrigin={{
+                vertical: 'top',
+                horizontal: 'right',
+              }}
+              open={Boolean(anchorElUser)}
+              onClose={handleCloseUserMenu}
+            >
+              {settings.map((setting) => (
+                <MenuItem key={setting} onClick={handleCloseUserMenu}>
+                  <Typography textAlign="center">{setting}</Typography>
+                </MenuItem>
+              ))}
+            </Menu>
           </Box>
-        </Menu>
-      </Box>
-    );
+       
+  );
 }
-
-export default UserProfile
+export default UserProfile;

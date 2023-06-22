@@ -39,12 +39,12 @@ const AppNavMenu =(props) =>{
                        Ytube
                     </Typography>
                 </Box>
-                {/* <Box sx={hideOnMobile}>
+                <Box sx={hideOnMobile}>
                   <SearchBar/>
-                </Box> */}
-                {/* <Box sx={hideOnMobile}>
+                </Box>
+                <Box sx={hideOnMobile}>
                   <UserProfile/>
-                </Box> */}
+                </Box>
             </Box>      
         </Toolbar>      
     </AppBar>

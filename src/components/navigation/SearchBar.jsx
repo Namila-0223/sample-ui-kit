@@ -1,31 +1,65 @@
-import { Box } from '@mui/system';
-import { BsFillMicFill } from 'react-icons/bs';
-import { Button } from '@mui/material';
-import React from 'react';
-import IconButton from '@mui/material/IconButton';
+import * as React from 'react';
+import { styled, alpha } from '@mui/material/styles';
+import Box from '@mui/material/Box';
 import InputBase from '@mui/material/InputBase';
-import Paper from '@mui/material/Paper';
 import SearchIcon from '@mui/icons-material/Search';
-import { flexAlignCenter, searchBar } from '../../styles/styles';
 
-const SearchBar = () => {
+const Search = styled('div')(({ theme }) => ({
+  position: 'relative',
+  borderRadius: theme.shape.borderRadius,
+  backgroundColor: alpha(theme.palette.common.white, 0.15),
+  '&:hover': {
+    backgroundColor: alpha(theme.palette.common.white, 0.25),
+  },
+  marginLeft: 0,
+  width: '800px',
+  [theme.breakpoints.up('sm')]: {
+    marginLeft: theme.spacing(1),
+    width: 'auto',
+  },
+}));
+
+const SearchIconWrapper = styled('div')(({ theme }) => ({
+  padding: theme.spacing(0, 2),
+  height: '100%',
+  color:'white',
+  position: 'absolute',
+  pointerEvents: 'none',
+  display: 'flex',
+  alignItems: 'center',
+  justifyContent: 'center',
+}));
+
+const StyledInputBase = styled(InputBase)(({ theme }) => ({
+  color: 'white',
+  '& .MuiInputBase-input': {
+    padding: theme.spacing(1, 1, 1, 0),
+    // vertical padding + font size from searchIcon
+    paddingLeft: `calc(1em + ${theme.spacing(4)})`,
+    transition: theme.transitions.create('width'),
+    width: '100%',
+    [theme.breakpoints.up('sm')]: {
+      width: '12ch',
+      '&:focus': {
+        width: '80ch',
+      },
+    },
+  },
+}));
+
+export default function SearchBar() {
   return (
-    <Box sx={flexAlignCenter}>
-        <Paper component="form" sx={searchBar}>
-            <InputBase sx={{ ml:1, flex: 1, pl: 1}} placeholder='Search...'/>
-                <IconButton 
-                sx={{ backgroundColor: '#eee', borderRadius: 10, p: '10px' }} 
-                type="submit" 
-                aria-label="search"
-                >
-                    <SearchBar/>
-                </IconButton>
-        </Paper>
-        <Button sx={{minWidth: 'auto'}}>
-            <BsFillMicFill size={18}/>
-        </Button>
+    <Box sx={{ flexGrow: 1 }}>
+ 
+          <Search style={{ width: 500 }}>
+            <SearchIconWrapper>
+              <SearchIcon />
+            </SearchIconWrapper>
+            <StyledInputBase
+              placeholder="Search…"
+              inputProps={{ 'aria-label': 'search' }}
+            />
+          </Search>
     </Box>
-  )
+  );
 }
-
-export default SearchBar

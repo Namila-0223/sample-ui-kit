@@ -75,7 +75,7 @@ export const sideListItems = [
   { id: 12, text: 'test10', icon: <SiFacebookgaming size={24} color='#ffff'/> },
   { id: 13, text: 'test11', icon: <SiLivechat size={24} color='#ffff'/> },
   { id: 14, text: 'test12', icon: <GiLargeDress size={24} color='#ffff'/> },
-  { id: 15, subdivision: true, text: 'More from Youtube' },
+  { id: 15, subdivision: true, text: 'More from ' },
   {
     id: 16,
     text: 'test13',
