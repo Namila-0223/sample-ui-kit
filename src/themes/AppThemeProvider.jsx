@@ -7,7 +7,7 @@ const theme = createTheme({
         allVariants: {
         fontFamily: 'Roboto',
         fontSize: '14px',
-        fontWeight: 400,
+        fontWeight: 500,
         },
     },
     palette: {
@@ -30,11 +30,12 @@ const theme = createTheme({
         styleOverrides: {
             root: {
             backgroundColor: '#eee',
-            borderRadius: 30,
+            borderRadius: 10,
             marginRight: '10px',
-            marginTop: '10px',
+            marginTop: '2px',
             minHeight : '15px',
-            minWidth : '60px',
+            minWidth : '1px',
+            height : '30px',
             ':active': {
                 backgroundColor : 'black',
                 color: 'white',

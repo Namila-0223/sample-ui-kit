@@ -2,7 +2,24 @@ import Box from '@mui/material/Box';
 import React from 'react';
 import Tab from '@mui/material/Tab';
 import Tabs from '@mui/material/Tabs';
-import { tabItems } from '../data/app.data';
+
+const tabItems = [
+  { id: 1, text: 'All' },
+  { id: 2, text: 'Music' },
+  { id: 3, text: 'Music' },
+  { id: 4, text: 'Music' },
+  { id: 5, text: 'Music' },
+  { id: 6, text: 'Music' },
+  { id: 7, text: 'Music' },
+  { id: 8, text: 'Music' },
+  { id: 9, text: 'Music' },
+  { id: 10, text: 'Music' },
+  { id: 11, text: 'Music' },
+  { id: 12, text: 'Music' },
+  { id: 13, text: 'Music' },
+  { id: 14, text: 'Music' },
+  { id: 15, text: 'Music' },
+];
 
 const TabList = () => {
   const [value, setValue] = React.useState(0);
@@ -22,9 +39,9 @@ const TabList = () => {
         
       >
         {tabItems.map((item) => {
-          return <Tab key={item.id} label={item.text} sx={{ color: 'white', ':hover': { 
-            backgroundColor: 'rgba(255, 255, 255, 0.1)',
-            borderRadius: '15px' 
+          return <Tab key={item.id} label={item.text} sx={{':hover': { 
+            backgroundColor: 'rgba(255, 255, 255, 0.123)',
+            borderRadius: '10px' 
              } }} />;
         })}
       </Tabs>

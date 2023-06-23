@@ -1,5 +1,4 @@
 import React from 'react';
-import { AiFillYoutube } from 'react-icons/ai';
 import AppBar from '@mui/material/AppBar';
 import Box from '@mui/material/Box';
 import IconButton from '@mui/material/IconButton';
@@ -34,9 +33,9 @@ const AppNavMenu =(props) =>{
                     >
                         <MenuIcon sx={{color:"white"}}/>
                     </IconButton>
-                    <AiFillYoutube size={32} color='white'/>
+                    
                     <Typography variant='h6' component="div" sx={logoText}>
-                       Ytube
+                       Sample
                     </Typography>
                 </Box>
                 <Box sx={hideOnMobile}>
