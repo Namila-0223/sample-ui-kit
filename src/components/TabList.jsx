@@ -19,6 +19,16 @@ const tabItems = [
   { id: 13, text: 'Music' },
   { id: 14, text: 'Music' },
   { id: 15, text: 'Music' },
+  { id: 16, text: 'Music' },
+  { id: 17, text: 'Music' },
+  { id: 18, text: 'Music' },
+  { id: 19, text: 'Music' },
+  { id: 20, text: 'Music' },
+  { id: 21, text: 'Music' },
+  { id: 22, text: 'Music' },
+  { id: 23, text: 'Music' },
+  { id: 24, text: 'Music' },
+  { id: 25, text: 'Music' },
 ];
 
 const TabList = () => {

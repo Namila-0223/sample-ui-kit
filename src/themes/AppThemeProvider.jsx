@@ -31,7 +31,7 @@ const theme = createTheme({
             root: {
             backgroundColor: '#eee',
             borderRadius: 10,
-            marginRight: '10px',
+            marginRight: '35px',
             marginTop: '2px',
             minHeight : '15px',
             minWidth : '1px',

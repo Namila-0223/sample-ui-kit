@@ -7,7 +7,7 @@ import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
 import Typography from '@mui/material/Typography';
-import { sideListWrapper } from '../styles/styles';
+import { hideOnMobile, sideListWrapper } from '../styles/styles';
 
 import { AiFillHome } from 'react-icons/ai';
 import { MdOutlineExplore } from 'react-icons/md';
@@ -69,9 +69,15 @@ const sideListItems = [
   { id: 24, text: 'Send Feedback', icon: <MdFeedback size={24} color='#ffff'/> },
 ];
 
+const [menudata, setMenuData] = useState();
+
 const SideList = () => {
+
+
+
+  
   return (
-    <Box sx={sideListWrapper}>
+    <Box sx={{sideListWrapper, hideOnMobile}}>
       {sideListItems.map((item) => {
         return (
           <React.Fragment key={item.id}>
@@ -98,7 +104,7 @@ const SideList = () => {
             ) : (
               <nav aria-label="Side list items">
                 <List sx={{ p: 0 }}>
-                  <ListItem disablePadding>
+                  <ListItem disablePadding onClick={()=> setMenuData("test1")}>
                     <ListItemButton 
                     sx={{ ':hover': { 
                       backgroundColor: 'rgba(255, 255, 255, 0.1)',
@@ -119,6 +125,12 @@ const SideList = () => {
           </React.Fragment>
         );
       })}
+      <Box component="main" sx={{ flexGrow: 1, p: 3 }}>
+        {menudata == "test1" && <Test1 />}
+        {menudata == "test2" && <Test2 />}
+        {menudata == "test3" && <Test3 />}
+                  
+      </Box>
     </Box>
   );
   
